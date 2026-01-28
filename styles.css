@@ -1,0 +1,311 @@
+/* ================================
+   BASE STYLES
+================================ */
+
+/* CSS variables for consistent sizing */
+:root { /* root element scope */
+  --layout-max: 1150px;  /* max width for wide sections */
+  --content-max: 1000px; /* max width for narrow sections */
+  --gutter: 24px;        /* horizontal padding inside wrappers */
+
+  --radius-sm: 6px;      /* button corner radius */
+  --radius-md: 10px;     /* CTA panel corner radius */
+  --radius-lg: 18px;     /* gallery square corner radius */
+}
+
+/* Include padding + border in width calculations */
+*, /* all elements */
+*::before, /* all ::before pseudo-elements */
+*::after { /* all ::after pseudo-elements */
+  box-sizing: border-box; /* width includes padding and border */
+}
+
+/* Global page layout and typography */
+body { /* page wrapper */
+  font-family: Roboto, sans-serif; /* primary typeface */
+  margin: 0; /* all sides */
+  display: flex; /* enable flexbox layout */
+  flex-direction: column; /* stack children vertically */
+}
+
+/* Wide wrapper used by header, hero, and CTA */
+.layout-boundary { /* wide container class */
+  max-width: var(--layout-max); /* constrain width to 1150px */
+  margin: 0 auto; /* top/bottom left/right */
+  padding: 0 var(--gutter); /* top/bottom left/right */
+}
+
+/* Narrow wrapper used by gallery and quote */
+.content-boundary { /* narrow container class */
+  max-width: var(--content-max); /* constrain width to 1000px */
+  margin: 0 auto; /* top/bottom left/right */
+  padding: 0 var(--gutter); /* top/bottom left/right */
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header { /* header section */
+  background-color: #1f2937; /* dark hero background */
+  color: #f9f9f9; /* light text */
+  padding: 20px 0; /* top/bottom left/right */
+}
+
+/* Header layout: logo left, nav right */
+header .layout-boundary { /* header inner container */
+  display: flex; /* enable flexbox */
+  justify-content: space-between; /* space items apart */
+  align-items: center; /* center vertically */
+}
+
+.header-logo { /* logo text */
+  font-size: 26px; /* text size */
+  font-weight: 700; /* bold */
+}
+
+header nav ul { /* navigation list */
+  list-style: none; /* remove bullets */
+  display: flex; /* horizontal layout */
+  gap: 20px; /* space between items */
+  padding: 0; /* all sides */
+  margin: 0; /* all sides */
+}
+
+header nav a { /* navigation links */
+  font-size: 20px; /* text size */
+  color: #e5e7eb; /* header link color */
+  text-decoration: none; /* remove underline */
+}
+
+header nav a:hover { /* navigation link hover state */
+  text-decoration: underline; /* show underline on hover */
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.hero { /* hero section */
+  background-color: #1f2937; /* dark hero background */
+  color: #f9f9f9; /* light text */
+  padding: 100px 0 140px; /* top left/right bottom */
+}
+
+/* Two-column layout */
+.hero .layout-boundary { /* hero inner container */
+  display: flex; /* enable flexbox */
+  justify-content: space-between; /* space columns apart */
+  align-items: center; /* center vertically */
+  gap: 16px; /* spacing between columns */
+}
+
+.hero-text { /* text column wrapper */
+  max-width: 455px; /* limit text width */
+  flex: 1; /* allow flexible growth */
+}
+
+.hero-text h1 { /* main hero heading */
+  font-size: 48px; /* hero main text */
+  font-weight: 900; /* extra bold */
+  margin: 0 0 8px; /* top left/right bottom */
+}
+
+.hero-subtext { /* hero paragraph */
+  font-size: 18px; /* hero secondary text */
+  color: #e5e7eb; /* lighter text color */
+  margin: 0; /* all sides */
+  padding: 0 0 20px; /* top left/right bottom */
+}
+
+.hero-btn { /* hero call-to-action button */
+  background-color: #3882f6; /* call to action background */
+  color: #f9faf8; /* button text color */
+  border: none; /* remove default border */
+  padding: 10px 28px; /* top/bottom left/right */
+  border-radius: var(--radius-sm); /* rounded corners */
+  font-size: 18px; /* button text size */
+  font-weight: 700; /* bold text */
+  cursor: pointer; /* show pointer on hover */
+}
+
+.hero-btn:hover { /* hero button hover state */
+  background-color: #2563eb; /* darker blue on hover */
+}
+
+.hero-image { /* image placeholder */
+  width: 100%; /* responsive width */
+  max-width: 600px; /* maximum width */
+  height: 240px; /* fixed height */
+  background-color: #6b7280; /* placeholder gray */
+  display: flex; /* enable flexbox */
+  align-items: center; /* center content vertically */
+  justify-content: center; /* center content horizontally */
+  text-align: center; /* center text */
+  color: #e5e7eb; /* placeholder text color */
+  flex: 1.25; /* flex ratio */
+}
+
+.hero-image p { /* placeholder text */
+  margin: 0; /* all sides */
+}
+
+
+/* ================================
+   GALLERY
+================================ */
+
+.gallery { /* gallery section */
+  padding: 40px 0 100px; /* top left/right bottom */
+  text-align: center; /* center heading */
+}
+
+.gallery h2 { /* gallery heading */
+  font-size: 40px; /* text size */
+  font-weight: 900; /* extra bold */
+  color: #1f2937; /* dark text */
+  margin: 0 0 60px; /* top left/right bottom */
+}
+
+.gallery-items { /* gallery cards container */
+  display: flex; /* enable flexbox */
+  justify-content: center; /* center cards */
+  align-items: flex-start; /* align card tops */
+  flex-wrap: wrap; /* wrap on narrow screens */
+  gap: 40px; /* spacing between cards */
+}
+
+.gallery-card { /* individual card */
+  width: 190px; /* fixed card width */
+  text-align: center; /* center card content */
+}
+
+.illustration { /* decorative square */
+  width: 180px; /* square width */
+  height: 180px; /* square height */
+  border: 5px solid #3882f6; /* blue border */
+  border-radius: var(--radius-lg); /* rounded corners */
+  margin: 0 auto 12px; /* top left/right bottom */
+}
+
+.gallery-card p { /* card caption text */
+  width: 180px; /* fixed text width */
+  margin: 0 auto; /* top/bottom left/right */
+  font-size: 20px; /* text size */
+  line-height: 1.3; /* line spacing */
+  color: #6b7280; /* info text color */
+  text-align: center; /* center text */
+  word-break: break-word; /* break long words */
+  white-space: normal; /* allow wrapping */
+}
+
+
+/* ================================
+   QUOTE
+================================ */
+
+.quote { /* quote section */
+  background-color: #e5e7eb; /* quote background */
+  padding: 120px 0; /* top/bottom left/right */
+  color: #1f2937; /* dark text */
+}
+
+.quote-content { /* quote container */
+  max-width: 800px; /* limit quote width */
+  margin: 0 auto; /* top/bottom left/right */
+  display: flex; /* enable flexbox */
+  flex-direction: column; /* stack quote and author */
+}
+
+.quote blockquote { /* quote text */
+  font-size: 36px; /* text size */
+  font-style: italic; /* italicize quote */
+  font-weight: 300; /* light weight */
+  color: #4b5563; /* quote text color */
+  line-height: 1.3; /* line spacing */
+  margin: 0; /* all sides */
+  text-align: left; /* left-align quote */
+}
+
+.quote cite { /* quote attribution */
+  display: block; /* force new line */
+  margin-top: 20px; /* spacing above */
+  font-size: 24px; /* text size */
+  font-style: normal; /* remove italic */
+  font-weight: 700; /* bold author name */
+  text-align: right; /* right-align author */
+}
+
+
+/* ================================
+   CALL TO ACTION
+================================ */
+
+.call-to-action { /* CTA section */
+  background-color: #fff; /* white background */
+  padding: 120px 0; /* top/bottom left/right */
+}
+
+.cta-box { /* CTA container panel */
+  background-color: #3882f6; /* call to action background */
+  width: 100%; /* full width of boundary */
+  padding: 56px 120px; /* top/bottom left/right */
+  border-radius: var(--radius-md); /* rounded corners */
+  display: flex; /* enable flexbox */
+  justify-content: space-between; /* space text and button apart */
+  align-items: center; /* center vertically */
+}
+
+.cta-text { /* CTA text wrapper */
+  max-width: 720px; /* limit text width */
+}
+
+.cta-text h2 { /* CTA heading */
+  font-size: 26px; /* text size */
+  color: #f9faf8; /* light text */
+  font-weight: 700; /* bold */
+  margin: 0 0 4px; /* top left/right bottom */
+}
+
+.cta-text p { /* CTA description */
+  color: #f9faf8; /* light text */
+  font-size: 18px; /* text size */
+  font-weight: 300; /* light weight */
+  margin: 0; /* all sides */
+}
+
+.cta-btn { /* CTA button */
+  background-color: transparent; /* no background fill */
+  border: 2px solid #f9faf8; /* white outline */
+  color: #f9faf8; /* white text */
+  padding: 10px 40px; /* top/bottom left/right */
+  border-radius: var(--radius-sm); /* rounded corners */
+  font-size: 16px; /* text size */
+  font-weight: 700; /* bold text */
+  line-height: 1; /* prevent extra height */
+  display: inline-block; /* allow padding */
+  cursor: pointer; /* show pointer on hover */
+}
+
+.cta-btn:hover { /* CTA button hover state */
+  background-color: rgba(249, 250, 248, 0.1); /* subtle background on hover */
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer { /* footer section */
+  background-color: #1f2937; /* dark background */
+  color: #e5e7eb; /* light text */
+  padding: 50px 0; /* top/bottom left/right */
+  text-align: center; /* center text */
+}
+
+footer p { /* footer copyright text */
+  margin: 0; /* all sides */
+  font-size: 18px; /* text size */
+}
